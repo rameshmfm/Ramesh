@@ -1,10 +1,10 @@
 VSTS Agent Docker Image
 ====================
 
-This repository contains `Dockerfile` definitions for [lenisha/vsts-agent-infrastructure](https://github.com/lenisha/vsts-agent-infrastructure) Docker images.
+This repository contains `Dockerfile` definitions for [kjsubbu/vsts-agent-infrastructure](https://github.com/kjsubbu/vsts-agent-infrastructure) Docker images.
 
-[![Downloads from Docker Hub](https://img.shields.io/docker/pulls/lenisha/vsts-agent-infrastructure.svg)](https://registry.hub.docker.com/u/lenisha/vsts-agent-infrastructure)
-[![Stars on Docker Hub](https://img.shields.io/docker/stars/lenisha/vsts-agent-infrastructure.svg)](https://registry.hub.docker.com/u/lenisha/vsts-agent-infrastructure) [![](https://images.microbadger.com/badges/image/lenisha/vsts-agent-infrastructure.svg)](https://microbadger.com/images/lenisha/vsts-agent-infrastructure "Get your own image badge on microbadger.com")
+[![Downloads from Docker Hub](https://img.shields.io/docker/pulls/kjsubbu/vsts-agent-infrastructure.svg)](https://registry.hub.docker.com/u/kjsubbu/vsts-agent-infrastructure)
+[![Stars on Docker Hub](https://img.shields.io/docker/stars/kjsubbu/vsts-agent-infrastructure.svg)](https://registry.hub.docker.com/u/kjsubbu/vsts-agent-infrastructure) [![](https://images.microbadger.com/badges/image/kjsubbu/vsts-agent-infrastructure.svg)](https://microbadger.com/images/kjsubbu/vsts-agent-infrastructure "Get your own image badge on microbadger.com")
 
 
 Docker image for VSTS Agent with infrastrucure tools installed
@@ -32,7 +32,7 @@ docker run \
   -e VSTS_TOKEN=<pat> \
   -e VSTS_AGENT='$(hostname)-agent' \
   -e VSTS_POOL=mypool \
-  -it lenisha/vsts-agent-infrastructure
+  -it kjsubbu/vsts-agent-infrastructure
 ```
 
 ## Notes
