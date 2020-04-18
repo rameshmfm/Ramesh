@@ -1,3 +1,7 @@
+provider "azurerm" {
+version = "=2.5.0"
+features {}
+}
 resource "azurerm_resource_group" "aci-rg" {
   name     = "aci-vsts"
   location = "westus2"
@@ -14,7 +18,7 @@ resource "random_id" "randomId" {
 
 resource "azurerm_storage_account" "aci-sa" {
   name                = "acisa${random_id.randomId.hex}"
-  resource_group_name = "${azurerm_resource_group.aci-rg.name}"
+  resource_group_name  = "${azurerm_resource_group.aci-rg.name}"
   location            = "${azurerm_resource_group.aci-rg.location}"
   account_tier        = "Standard"
 
@@ -23,7 +27,6 @@ resource "azurerm_storage_account" "aci-sa" {
 
 resource "azurerm_storage_share" "aci-share" {
   name                 = "aci-vsts-share"
-  resource_group_name  = "${azurerm_resource_group.aci-rg.name}"
   storage_account_name = "${azurerm_storage_account.aci-sa.name}"
 
   quota = 50
@@ -38,16 +41,19 @@ resource "azurerm_container_group" "aci-vsts" {
 
   container {
     name   = "vsts-agent"
-    image  = "lenisha/vsts-agent-infrastructure"
+    image  = "kjsubbu/vsts-agent-infrastructure"
     cpu    = "0.5"
     memory = "1.5"
+    ports  {
     port   = "80"
+    protocol = "TCP"
+}
 
-    environment_variables {
-      "VSTS_ACCOUNT" = "${var.vsts-account}"
-      "VSTS_TOKEN"   = "${var.vsts-token}"
-      "VSTS_AGENT"   = "${var.vsts-agent}"
-      "VSTS_POOL"    = "${var.vsts-pool}"
+    environment_variables = {
+      VSTS_ACCOUNT = "${var.vsts-account}"
+      VSTS_TOKEN   = "${var.vsts-token}"
+      VSTS_AGENT   = "${var.vsts-agent}"
+      VSTS_POOL    = "${var.vsts-pool}"
     }
 
     volume {
@@ -59,9 +65,9 @@ resource "azurerm_container_group" "aci-vsts" {
       storage_account_name = "${azurerm_storage_account.aci-sa.name}"
       storage_account_key  = "${azurerm_storage_account.aci-sa.primary_access_key}"
     }
-  }
+}
 
-  tags {
-    environment = "testing"
+  tags = {
+    Environment = "TestingLab"
   }
 }
