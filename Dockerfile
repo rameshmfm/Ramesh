@@ -7,7 +7,7 @@ LABEL org.label-schema.name="VSTS Agent with Infrastrucure Tools" \
     org.label-schema.vcs-url="https://github.com/kjsubbu/vsts-agent-infrastructure" \
     org.label-schema.schema-version="1.0"
                 
-ENV TERRAFORM_VERSION 0.11.10
+ENV TERRAFORM_VERSION 0.12.24
 ENV PACKER_VERSION 1.3.2
 ENV ANSIBLE_VERSION 2.0.0.2
 
