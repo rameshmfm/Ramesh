@@ -10,7 +10,7 @@ This repository contains `Dockerfile` definitions for [kjsubbu/vsts-agent-infras
 Docker image for VSTS Agent with infrastrucure tools installed
 
 ```
-ENV TERRAFORM_VERSION 0.11.10
+ENV TERRAFORM_VERSION 0.12.24
 ENV PACKER_VERSION 1.3.2
 ENV ANSIBLE_VERSION 2.0.0.2
 ```
