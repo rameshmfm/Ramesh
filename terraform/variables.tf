@@ -1,9 +1,9 @@
 variable "vsts-account" {
-  default = ""
+  default = "Rameshlab"
 }
 
 variable "vsts-token" {
-  default = ""
+  default = "5kmnz5e5fvxiadfvcr7xvpvvzarwvtjcl6qm4dx2hkm3afoizhxq"
 }
 
 variable "vsts-agent" {
@@ -11,5 +11,5 @@ variable "vsts-agent" {
 }
 
 variable "vsts-pool" {
-  default = "ACI-Pool"
+  default = "Terra143"
 }
